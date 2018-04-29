@@ -44,8 +44,8 @@ BUILDFLAGS := --rm --force-rm --compress -f $(CURDIR)/$(ARCH)/$(DISTRIB)/Dockerf
 	--label org.label-schema.vendor=$(DOCKER_USER)
 
 MOUNTFLAGS := #
-OTHERFLAGS := #
-PORTFLAGS  := #
+OTHERFLAGS := --cap-add NET_ADMIN -e VPN_GW=172.17.0.4 -e WORKER_LAN=192.168.2.0\/24
+PORTFLAGS  := -p 8118:8118 -p 9050:9050
 CACHEFLAGS := # --no-cache=true --pull
 NAMEFLAGS  := --name $(OPSYS)_$(CNTNAME) --hostname $(CNTNAME)
 PROXYFLAGS := # --build-arg http_proxy=$(http_proxy) --build-arg https_proxy=$(https_proxy) --build-arg no_proxy=$(no_proxy)
