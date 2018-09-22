@@ -117,7 +117,7 @@ test :
 regbinfmt :
 	docker run --rm --privileged multiarch/qemu-user-static:register --reset
 
-ALPINE_VERSION   := 3.7.0
+ALPINE_VERSION   := 3.8.0
 
 fetch:
 	mkdir -p data && cd data \
